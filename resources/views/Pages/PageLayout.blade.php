@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
-    <title>CPS - Admin Login</title>
+    <title>@yield('title')</title>
     <!-- Custom CSS -->
     <link href="{{ asset('assets/css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/toastr/toastr.min.css') }}" rel="stylesheet"> 
@@ -43,7 +43,7 @@
                               <a class="nav-link" href="{{ url('check-status') }}">Check Status</a>
                             </li> 
                             <li class="nav-item active">
-                              <a class=" btn btn-success" href="#">Download Certificate</a>
+                              <a class=" btn btn-success" href="{{ url('download-certificate') }}">Download Certificate</a>
                             </li> 
                           </ul>
                         </div>

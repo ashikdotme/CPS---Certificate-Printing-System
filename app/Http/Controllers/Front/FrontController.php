@@ -11,4 +11,9 @@ class FrontController extends Controller
     function PageCheckStatus(){
         return view('Pages.Status');
     }
+
+    // Download Page View
+    function PageDownload(){
+        return view('Pages.Download');
+    }
 }

@@ -1,5 +1,5 @@
 @extends('Pages.PageLayout')
-@section('title','CPS - New Registration')
+@section('title','CPS - Check Status')
 @section('content')
         <!-- ============================================================== -->
         <!-- Login box.scss -->

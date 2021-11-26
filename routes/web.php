@@ -16,3 +16,6 @@ Route::post('api-student-registration',[RegisterController::class,'onRegistratio
 Route::post('api-student-registration-otp-confirm',[RegisterController::class,'confirmRegisterOtp']);
 // Check Status
 Route::get('check-status',[FrontController::class,'PageCheckStatus']);
+
+// Download
+Route::get('download-certificate',[FrontController::class,'PageDownload']);
