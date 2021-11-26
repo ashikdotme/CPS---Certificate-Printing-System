@@ -4,7 +4,7 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
+        <div class="page-wappper d-flex no-block justify-content-center align-items-center position-relative"
             style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
             <div class="auth-box row">
                
@@ -13,89 +13,19 @@
                         <div class="text-center">
                             <img src="assets/images/logo-icon.png" alt="wrapkit">
                         </div>
-                        <h2 class="mt-3 text-center">New Registration</h2> 
-                        <p class="text-center">Certificate Printing System</p>
+                        <h2 class="mt-3 text-center">Check Status</h2> 
+                        <p class="text-center">Check your Certificate Status</p>
                         <form class="mt-4" method="POST" action="" id="regiForm">
                             <div class="row" id="step_1">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="text-dark" for="name">Name</label>
-                                        <input class="form-control" id="name" type="text" placeholder="Full Name">
+                                        <label class="text-dark" for="name">Student ID</label>
+                                        <input class="form-control" id="name" type="text" placeholder="Student ID">
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="father_name">Father's Name</label>
-                                        <input class="form-control" id="father_name" type="text" placeholder="Father's Name">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="mother_name">Mother's Name</label>
-                                        <input class="form-control" id="mother_name" type="text" placeholder="Mother's Name">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="st_id">ID</label>
-                                        <input class="form-control" id="st_id" type="text" placeholder="ID">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="department">Department</label>
-                                        <select name="batch" class="form-control" id="department">
-                                            <option value="CSE">CSE</option>
-                                            <option value="EEE">EEE</option>
-                                        </select> 
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="session">Session</label>
-                                        <input class="form-control" id="session" type="text" placeholder="Session">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="batch">Batch</label>
-                                        <select name="batch" class="form-control" id="batch">
-                                            <option value="Batch 1">Batch 1</option>
-                                            <option value="Batch 2">Batch 2</option>
-                                            <option value="Batch 3">Batch 3</option>
-                                            <option value="Batch 4">Batch 4</option>
-                                            <option value="Batch 5">Batch 5</option>
-                                            <option value="Batch 6">Batch 6</option>
-                                            <option value="Batch 7">Batch 7</option>
-                                            <option value="Batch 8">Batch 8</option>
-                                            <option value="Batch 9">Batch 9</option>
-                                            <option value="Batch 10">Batch 10</option>
-                                        </select> 
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="shift">Shift</label>
-                                        <select name="batch" class="form-control" id="shift">
-                                            <option value="Regular">Regular</option>
-                                            <option value="Evening">Evening</option>
-                                        </select> 
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="mobile">Mobile</label>
-                                        <input class="form-control" id="mobile" type="text" placeholder="Mobile">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="email">Email</label>
-                                        <input class="form-control" id="email" type="email" placeholder="Email">
-                                    </div>
-                                </div>
+                                   
                                 <div class="col-lg-12 text-center">
-                                    <button type="submit" id="regi_btn" class="btn btn-block btn-success">Next</button>
+                                    <button type="submit" id="regi_btn" class="btn btn-block btn-success">Check Status</button>
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
                                     

@@ -40,7 +40,7 @@
                               <a class="nav-link" href="{{ url('registration') }}">New Registration</a>
                             </li> 
                             <li class="nav-item  ">
-                              <a class="nav-link" href="#">Check Status</a>
+                              <a class="nav-link" href="{{ url('check-status') }}">Check Status</a>
                             </li> 
                             <li class="nav-item active">
                               <a class=" btn btn-success" href="#">Download Certificate</a>

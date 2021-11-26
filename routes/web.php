@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,3 +14,5 @@ Route::post('api-on-login',[AdminController::class,'onLogin']);
 Route::get('registration',[RegisterController::class,'RegistrationPageView']);
 Route::post('api-student-registration',[RegisterController::class,'onRegistration']);
 Route::post('api-student-registration-otp-confirm',[RegisterController::class,'confirmRegisterOtp']);
+// Check Status
+Route::get('check-status',[FrontController::class,'PageCheckStatus']);
