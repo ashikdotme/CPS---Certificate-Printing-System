@@ -1,0 +1,22 @@
+#step_2{
+    display: none;
+}
+
+.footer_area {
+	background: #34495e;
+	text-align: center;
+	color: #FFF;
+	padding: 10px;
+}
+
+.footer_area p{
+    margin:0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: #575757;
+	padding: 7px 20px;
+}
+.header_area{
+    padding: 10px 0;
+}
