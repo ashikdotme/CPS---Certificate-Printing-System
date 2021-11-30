@@ -15,17 +15,16 @@
                         </div>
                         <h2 class="mt-3 text-center">Check Status</h2> 
                         <p class="text-center">Check your Certificate Status</p>
-                        <form class="mt-4" method="POST" action="" id="regiForm">
+                        <form class="mt-4" method="POST" action="" id="statusForm">
                             <div class="row" id="step_1">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="text-dark" for="name">Student ID</label>
-                                        <input class="form-control" id="name" type="text" placeholder="Student ID">
+                                        <label class="text-dark" for="st_id">Student ID</label>
+                                        <input class="form-control" id="st_id" type="text" placeholder="Student ID">
                                     </div>
-                                </div>
-                                   
+                                </div> 
                                 <div class="col-lg-12 text-center">
-                                    <button type="submit" id="regi_btn" class="btn btn-block btn-success">Check Status</button>
+                                    <button type="submit" id="status_btn" class="btn btn-block btn-success">Check Status</button>
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
                                     
@@ -33,25 +32,8 @@
                             </div>
                             
                         </form>
-                       
-                        {{-- step 2 --}}
-                        <form method="POST" action="" id="otpForm">
-                            <div class="row" id="step_2">
-                                <p class="text-center">Please check your Mobile SMS then submit the OTP.</p>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="m_otp">OTP</label>
-                                        <input class="form-control" id="m_otp" type="text" placeholder="OTP">
-                                    </div>
-                                </div> 
-                                <div class="col-lg-12 text-center">
-                                    <button type="submit" id="otp_btn" class="btn btn-block btn-success">Submit</button>
-                                </div>
-                                <div class="col-lg-12 text-center mt-5">
-                                    
-                                </div>
-                            </div>
-                        </form>
+                        <div class="success__msg"> </div> 
+                        
                     </div>
                 </div>
             </div>
@@ -64,40 +46,48 @@
      
  <script>
     
-    $('#otpForm').on('submit',function(e){
+    $('#statusForm').on('submit',function(e){
         e.preventDefault();
     
-        var m_otp=$('#m_otp').val();
-        var mobile=$('#mobile').val();
+        var st_id=$('#st_id').val(); 
          
-        if(m_otp.length==0){
-            toastr.error('OTP is Required!');
-        } 
-        else if(mobile.length==0){
-            toastr.error('Mobile Number is Required!');
-        } 
+        if(st_id.length==0){
+            toastr.error('Student ID Required!');
+        }  
         else{
     
-            $('#otp_btn').html('Loading <div class="spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div>');
-            axios.post('/api-student-registration-otp-confirm',{
-                m_otp:m_otp,
-                mobile:mobile
+            $('#status_btn').html('Loading <div class="spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div>');
+            axios.post('/api-check-status',{
+                st_id:st_id
             })
             .then(function(response){
                 if(response.status==200){ 
-                    if(response.data==1){
-                        $('#otp_btn').html('Submit'); 
-                        toastr.success('We will notify you soon!');   
-                        toastr.success('Submit Successfully!');  
-                        $('#m_otp').val('');
+                    console.log(response.data);
+                    if(response.data == 0){
+                        toastr.error('Student ID Not Found!');
+                        $('#status_btn').html('Check Status');
                     }
                     else{
-                        toastr.error(response.data);
-                        $('#otp_btn').html('Submit');
+                        
+                        let status = response.data[0]['status'];
+
+                        if(status == 0){
+                            $('.success__msg').html('<div class="alert alert-warning">Hello, <b>'+response.data[0]['name']+'</b> your Request is Pending!</div>');
+                            $('#status_btn').html('Check Status');
+                        }
+                        else if(status == 2){
+                            $('.success__msg').html('<div class="alert alert-danger">Hello, <b>'+response.data[0]['name']+'</b> your Request is Rejected!</div>');
+                            $('#status_btn').html('Check Status');
+                        }
+                        else if(status == 1){
+                            $('.success__msg').html('<div class="alert alert-success">Hello, <b>'+response.data[0]['name']+'</b> your Request is Approved! <br><br> <a class="btn btn-success" href="/download-certificate">Download Certificate</a></div>');
+                            $('#status_btn').html('Check Status');
+                        }
                     }
+                     
                 }else{
                     toastr.error('Something went wrong!');
-                    $('#otp_btn').html('Submit');
+                    $('#status_btn').html('Submit');
                 }
             })
             .catch(function (error) {
@@ -106,88 +96,7 @@
         }
     
     });
-    
-    $('#regiForm').on('submit',function(e){
-        e.preventDefault();
-    
-        var name=$('#name').val();
-        var father_name=$('#father_name').val();
-        var mother_name=$('#mother_name').val();
-        var st_id=$('#st_id').val();
-        var department=$('#department').val();
-        var session=$('#session').val(); 
-        var batch=$('#batch').val();
-        var shift=$('#shift').val();
-        var email=$('#email').val();
-        var mobile=$('#mobile').val();
-         
-        if(name.length==0){
-            toastr.error('Name is Required!');
-        }
-        else if(father_name.length==0){
-            toastr.error('Father Name is Required!');
-        }
-        else if(father_name.length==0){
-            toastr.error("Father's Name is Required!");
-        }
-        else if(mother_name.length==0){
-            toastr.error("Mothers's Name is Required!");
-        }
-        else if(st_id.length==0){
-            toastr.error("ID is Required!");
-        }
-        else if(department.length==0){
-            toastr.error("Department is Required!");
-        }
-        else if(mobile.length==0){
-            toastr.error("Mobile Number is Required!");
-        }
-        else if(mobile.length!=11){
-            toastr.error("Mobile Number Must be 11 Digit!");
-        }
-        else{
-    
-            $('#regi_btn').html('Loading <div class="spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div>');
-            axios.post('/api-student-registration',{
-                name:name,
-                father_name:father_name,
-                mother_name:mother_name,
-                st_id:st_id,
-                department:department,
-                session:session,
-                batch:batch,
-                shift:shift,
-                email:email,
-                mobile:mobile
-            })
-            .then(function(response){
-                if(response.status==200){ 
-                    if(response.data==2){
-                        toastr.error('Please verify your OTP!');  
-                        $('#regiForm').hide();
-                        $('#step_2').show();
-                    }
-                    else if(response.data==1){
-                        toastr.success('Submit Successfully!'); 
-                        $('#regi_btn').html('Next');
-                        $('#regiForm').hide();
-                        $('#step_2').show();
-                    }
-                    else{
-                        toastr.error(response.data);
-                        $('#regi_btn').html('Next');
-                    }
-                }else{
-                    toastr.error('Something went wrong!');
-                    $('#regi_btn').html('Next');
-                }
-            })
-            .catch(function (error) {
-                toastr.error('Something went wrong!');
-            })
-        }
-    
-    });
+     
     
     </script>
     

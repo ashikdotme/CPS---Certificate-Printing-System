@@ -25,3 +25,50 @@
     padding-top: 100px;
     padding-bottom: 400px;
 }
+.banner-area{
+	padding:60px 0;
+	background:url('../images/banner-bg.jpg') no-repeat scroll 0 0 / 100% 100%;
+}
+.banner-left img{ 
+	max-width: 80%;
+}
+.banner-right h1 {
+	color: #FFF;
+	font-weight: bold;
+	text-shadow: 0 0 2px #000;
+}
+.easy-steps {
+	overflow: hidden;
+	padding: 60px 0;
+	background: #F7F7F7;
+}
+.easy-step-img{
+	text-align: center;
+}
+.easy-step-img img { 
+	max-width: 400px;
+}
+.easy-step-content h2 {
+	font-weight: bold;
+	color: #000;
+	border-bottom: 2px dotted #000;
+	padding-bottom: 10px;
+}
+.easy-step-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.easy-step-list li i {
+	width: 30px;
+	height: 30px;
+	background: #22ca80;
+	color: #FFF;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 30px;
+	margin-right: 5px;
+}
+.easy-step-list li {
+	line-height: 40px;
+} 

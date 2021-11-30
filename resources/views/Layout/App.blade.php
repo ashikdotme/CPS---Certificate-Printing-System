@@ -28,12 +28,12 @@
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    <div class="preloader">
+    {{-- <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
         </div>
-    </div>
+    </div> --}}
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -53,7 +53,7 @@
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
                         <!-- Logo icon -->
-                        <a href="index.html">
+                        <a href="{{ url('/') }}">
                             <b class="logo-icon">
                                 <!-- Dark Logo icon -->
                                 <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
@@ -127,32 +127,7 @@
                                                     <span class="font-12 text-nowrap d-block text-muted">9:10 AM</span>
                                                 </div>
                                             </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)"
-                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
-                                                <span class="btn btn-info rounded-circle btn-circle"><i
-                                                        data-feather="settings" class="text-white"></i></span>
-                                                <div class="w-75 d-inline-block v-middle pl-2">
-                                                    <h6 class="message-title mb-0 mt-1">Settings</h6>
-                                                    <span
-                                                        class="font-12 text-nowrap d-block text-muted text-truncate">You
-                                                        can customize this template
-                                                        as you want</span>
-                                                    <span class="font-12 text-nowrap d-block text-muted">9:08 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)"
-                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
-                                                <span class="btn btn-primary rounded-circle btn-circle"><i
-                                                        data-feather="box" class="text-white"></i></span>
-                                                <div class="w-75 d-inline-block v-middle pl-2">
-                                                    <h6 class="message-title mb-0 mt-1">Pavan kumar</h6> <span
-                                                        class="font-12 text-nowrap d-block text-muted">Just
-                                                        see the my admin!</span>
-                                                    <span class="font-12 text-nowrap d-block text-muted">9:02 AM</span>
-                                                </div>
-                                            </a>
+                                           
                                         </div>
                                     </li>
                                     <li>
@@ -227,16 +202,16 @@
                                 aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Certificate</span></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link" href="ticket-list.html"
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{ url('pending-certificate-request')}}"
                                 aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
-                                    class="hide-menu">Ticket List
+                                    class="hide-menu">Pending Request
                                 </span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ url('all-request')}}"
                                 aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span
-                                    class="hide-menu">Chat</span></a></li>
+                                    class="hide-menu">All Request</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-calendar.html"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                                     class="hide-menu">Calendar</span></a></li>
