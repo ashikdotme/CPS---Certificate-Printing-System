@@ -79,3 +79,18 @@
 	text-align: center;
 	padding: 20px;
 }
+
+
+
+@media all and (max-width:767px){
+	.banner-area .row .col-md-6:last-child{
+		order:-1;
+	}
+	.banner-right {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.banner-area{
+		text-align: center;
+	}
+}
