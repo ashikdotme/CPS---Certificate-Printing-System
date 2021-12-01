@@ -32,4 +32,40 @@ class CertificateController extends Controller
            return redirect('pending-certificate-request');
         }
     }
+    // Approve Request
+    function AdminApprove(Request $request){
+        $st_id = $request->input('st_id');
+        $st_cgpa = $request->input('st_cgpa');
+        if($st_cgpa>4 || $st_cgpa<1){
+            return "CGPA value is Wrong!";
+        }
+        else{
+            $update = RegisterModel::where('id',$st_id)->where('status',0)->update([
+                'cgpa' => $st_cgpa,
+                'status' => 1, 
+                'updated_at' => now()
+            ]);
+            if($update == true){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+    }
+
+
+    // Reject Request
+    function AdminReject(Request $request){
+        $st_id = $request->input('st_id2'); 
+    
+        $update = RegisterModel::where('id',$st_id)->where('status',0)->update([ 
+            'status' => 2, 
+            'updated_at' => now()
+        ]);
+        if($update == true){
+            return 1;
+        }else{
+            return 0;
+        } 
+    }
 }

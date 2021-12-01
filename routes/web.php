@@ -16,6 +16,8 @@ Route::post('api-on-login',[AdminController::class,'onLogin']);
 Route::get('pending-certificate-request',[CertificateController::class,'PendingRequestPage'])->middleware('AdminCheck');
 Route::get('request-details',[CertificateController::class,'RequestDetails'])->middleware('AdminCheck');
 Route::get('api-pending-certificate-request-list',[CertificateController::class,'PendingRequestList'])->middleware('AdminCheck');
+Route::post('api-approve-pending-request',[CertificateController::class,'AdminApprove'])->middleware('AdminCheck');
+Route::post('api-reject-pending-request',[CertificateController::class,'AdminReject'])->middleware('AdminCheck');
 
 
 // Student Registration.
