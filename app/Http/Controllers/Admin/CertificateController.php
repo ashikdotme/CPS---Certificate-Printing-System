@@ -12,11 +12,22 @@ class CertificateController extends Controller
     function PendingRequestPage(){
         return view('Dashboard.PendingRequest');
     }
+
+    // Reject Request Page View
+    function RejectListPage(){
+        return view('Dashboard.RejectList');
+    }
+    // Approved Request Page View
+    function ApprovedListPage(){
+        return view('Dashboard.ApprovedList');
+    }
+
     // Pending Request List
     function PendingRequestList(){
         $list = RegisterModel::where('status',0)->get();
         return $list;
     }
+ 
 
     // Request Details
     function RequestDetails(Request $request){

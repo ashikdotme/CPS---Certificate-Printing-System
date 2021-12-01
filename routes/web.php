@@ -14,6 +14,8 @@ Route::post('api-on-login',[AdminController::class,'onLogin']);
 
 // Dashboard 
 Route::get('pending-certificate-request',[CertificateController::class,'PendingRequestPage'])->middleware('AdminCheck');
+Route::get('reject-request-list',[CertificateController::class,'RejectListPage'])->middleware('AdminCheck');
+Route::get('approved-request-list',[CertificateController::class,'ApprovedListPage'])->middleware('AdminCheck');
 Route::get('request-details',[CertificateController::class,'RequestDetails'])->middleware('AdminCheck');
 Route::get('api-pending-certificate-request-list',[CertificateController::class,'PendingRequestList'])->middleware('AdminCheck');
 Route::post('api-approve-pending-request',[CertificateController::class,'AdminApprove'])->middleware('AdminCheck');

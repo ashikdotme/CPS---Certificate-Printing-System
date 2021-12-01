@@ -212,6 +212,22 @@
                                     class="hide-menu">Pending Request
                                 </span></a>
                         </li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{ url('approved-request-list')}}"
+                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+                                    class="hide-menu">Approved List
+                                </span></a>
+                        </li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{ url('reject-request-list')}}"
+                                aria-expanded="false"><i data-feather="bar-chart" class="feather-icon"></i><span
+                                    class="hide-menu">Rejected List
+                                </span></a>
+                        </li>
+
+
+
+
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ url('all-request')}}"
                                 aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span
                                     class="hide-menu">All Request</span></a></li>
