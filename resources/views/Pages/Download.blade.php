@@ -14,13 +14,13 @@
                             <img src="assets/images/logo-icon.png" alt="wrapkit">
                         </div>
                         <h2 class="mt-3 text-center">Download</h2> 
-                        <p class="text-center">Print/Download your Certificate.</p>
-                        <form class="mt-4" method="POST" action="" id="regiForm">
+                        <p class="text-center">Download your Certificate.</p>
+                        <form class="mt-4" method="POST" action="" id="downloadForm">
                             <div class="row" id="step_1">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="text-dark" for="name">Student ID</label>
-                                        <input class="form-control" id="name" type="text" placeholder="Student ID">
+                                        <input class="form-control" id="st_id" type="text" placeholder="Student ID">
                                     </div>
                                 </div>
 
@@ -32,7 +32,7 @@
                                 </div>
                                    
                                 <div class="col-lg-12 text-center">
-                                    <button type="submit" id="regi_btn" class="btn btn-block btn-success">Download Now</button>
+                                    <button type="submit" id="download_btn" class="btn btn-block btn-success">Download Now</button>
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
                                     
@@ -71,40 +71,43 @@
      
  <script>
     
-    $('#otpForm').on('submit',function(e){
+    $('#downloadForm').on('submit',function(e){
         e.preventDefault();
     
-        var m_otp=$('#m_otp').val();
-        var mobile=$('#mobile').val();
+        var st_id=$('#st_id').val();
+        var mobile_number=$('#mobile_number').val();
          
-        if(m_otp.length==0){
-            toastr.error('OTP is Required!');
+        if(st_id.length==0){
+            toastr.error('Student ID is Required!');
         } 
-        else if(mobile.length==0){
+        else if(mobile_number.length==0){
             toastr.error('Mobile Number is Required!');
         } 
         else{
     
-            $('#otp_btn').html('Loading <div class="spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div>');
-            axios.post('/api-student-registration-otp-confirm',{
-                m_otp:m_otp,
-                mobile:mobile
+            $('#download_btn').html('Loading <div class="spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div>');
+            axios.post('/api-certificate-view-check',{
+                st_id:st_id,
+                mobile_number:mobile_number
             })
             .then(function(response){
                 if(response.status==200){ 
-                    if(response.data==1){
-                        $('#otp_btn').html('Submit'); 
-                        toastr.success('We will notify you soon!');   
-                        toastr.success('Submit Successfully!');  
-                        $('#m_otp').val('');
+                    let id = response.data['id'];
+                    let status = response.data['status']; 
+                    
+                    if(status==1){
+                        $('#download_btn').html('Download Now'); 
+                        toastr.success('Your Certificate is Ready for Download!');    
+                        
+                        window.location = "/certificate-view?id="+id;
                     }
                     else{
                         toastr.error(response.data);
-                        $('#otp_btn').html('Submit');
+                        $('#download_btn').html('Download Now'); 
                     }
                 }else{
                     toastr.error('Something went wrong!');
-                    $('#otp_btn').html('Submit');
+                    $('#download_btn').html('Download Now'); 
                 }
             })
             .catch(function (error) {

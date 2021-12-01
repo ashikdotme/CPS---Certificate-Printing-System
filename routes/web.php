@@ -39,3 +39,4 @@ Route::get('/',[FrontController::class,'PageHome']);
 // Certificate routes
 Route::get('certificate',[FrontController::class,'CertificatePageView']);
 Route::get('certificate-view',[CertificateController::class,'createPDF']);
+Route::post('api-certificate-view-check',[FrontController::class,'CertificateDownloadFromFront']);
