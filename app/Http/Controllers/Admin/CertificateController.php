@@ -27,6 +27,16 @@ class CertificateController extends Controller
         $list = RegisterModel::where('status',0)->get();
         return $list;
     }
+    // Reject  Request List
+    function RejectRequestList(){
+        $list = RegisterModel::where('status',2)->get();
+        return $list;
+    }
+    // Approved  Request List
+    function ApproveRequestList(){
+        $list = RegisterModel::where('status',1)->get();
+        return $list;
+    }
  
 
     // Request Details

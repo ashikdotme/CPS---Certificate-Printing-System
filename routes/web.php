@@ -18,6 +18,8 @@ Route::get('reject-request-list',[CertificateController::class,'RejectListPage']
 Route::get('approved-request-list',[CertificateController::class,'ApprovedListPage'])->middleware('AdminCheck');
 Route::get('request-details',[CertificateController::class,'RequestDetails'])->middleware('AdminCheck');
 Route::get('api-pending-certificate-request-list',[CertificateController::class,'PendingRequestList'])->middleware('AdminCheck');
+Route::get('api-reject-certificate-list',[CertificateController::class,'RejectRequestList'])->middleware('AdminCheck');
+Route::get('api-approve-certificate-list',[CertificateController::class,'ApproveRequestList'])->middleware('AdminCheck');
 Route::post('api-approve-pending-request',[CertificateController::class,'AdminApprove'])->middleware('AdminCheck');
 Route::post('api-reject-pending-request',[CertificateController::class,'AdminReject'])->middleware('AdminCheck');
 

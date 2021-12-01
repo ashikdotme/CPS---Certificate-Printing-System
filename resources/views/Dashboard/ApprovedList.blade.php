@@ -32,9 +32,9 @@
 @endsection
 @section('scripts')
 <script>
-AllPendingRequest();
-function AllPendingRequest() {
-    axios.get('/api-pending-certificate-request-list')
+AllApproveRequest();
+function AllApproveRequest() {
+    axios.get('/api-approve-certificate-list')
         .then(function(response) {
             if(response.status == 200) {
                 console.log(response.data);
@@ -80,7 +80,8 @@ function AllPendingRequest() {
                     }
 
                     function button(){
-                        return '<a href="/request-details?id='+jsonData[i].id+'"  data-id='+jsonData[i].id+' class="btn btn-success btn-sm ViewBtn"><i class="fa fa-eye"></i> View</a>';
+                        return '<a href="/request-details?id='+jsonData[i].id+'"  data-id='+jsonData[i].id+' class="btn btn-success btn-sm ViewBtn"><i class="fa fa-eye"></i> View</a> &nbsp;'+
+                       '<a href="/request-details?id='+jsonData[i].id+'"  data-id='+jsonData[i].id+' class="btn btn-info btn-sm PrintBtn"><i class="fa fa-print"></i> Print</a>';
                     }
 
                 });

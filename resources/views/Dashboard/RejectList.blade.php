@@ -32,9 +32,9 @@
 @endsection
 @section('scripts')
 <script>
-AllPendingRequest();
-function AllPendingRequest() {
-    axios.get('/api-pending-certificate-request-list')
+AllRejectRequest();
+function AllRejectRequest() {
+    axios.get('/api-reject-certificate-list')
         .then(function(response) {
             if(response.status == 200) {
                 console.log(response.data);
