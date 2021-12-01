@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminLoginModel;
+use App\Models\RegisterModel;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -14,7 +15,14 @@ class AdminController extends Controller
 
     // Dashboard Page View
     function dashboard_page_view(){
-        return view('Dashboard');
+        $total_pending = RegisterModel::where('status',0)->count();
+        $total_reject = RegisterModel::where('status',2)->count();
+        $total_approve = RegisterModel::where('status',1)->count();
+        return view('Dashboard',[
+            'total_pending' => $total_pending,
+            'total_reject' => $total_reject,
+            'total_approve' => $total_approve
+        ]);
     }
 
 

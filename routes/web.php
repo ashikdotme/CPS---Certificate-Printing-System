@@ -35,3 +35,6 @@ Route::post('api-check-status',[FrontController::class,'checkStatusFromID']);
 // Download
 Route::get('download-certificate',[FrontController::class,'PageDownload']);
 Route::get('/',[FrontController::class,'PageHome']);
+
+// Certificate routes
+Route::get('certificate',[FrontController::class,'CertificatePageView']);

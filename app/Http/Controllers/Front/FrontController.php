@@ -38,4 +38,11 @@ class FrontController extends Controller
         }
        
     }
+
+
+
+    // Certificate page view
+    function CertificatePageView(){
+        return view('Pages.Certificate');
+    }
 }
