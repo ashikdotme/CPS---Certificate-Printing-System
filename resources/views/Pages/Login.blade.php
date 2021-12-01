@@ -128,7 +128,7 @@
                     $('#loginBtn').html('Login');
                     if(response.data==1){
                         toastr.success('Login Success!');
-                        window.location.href='/';
+                        window.location.href='/dashboard';
                     }else{
                         toastr.error('Username or Password is Wrong!');
                     }
