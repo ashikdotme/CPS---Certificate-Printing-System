@@ -81,7 +81,7 @@ function AllApproveRequest() {
 
                     function button(){
                         return '<a href="/request-details?id='+jsonData[i].id+'"  data-id='+jsonData[i].id+' class="btn btn-success btn-sm ViewBtn"><i class="fa fa-eye"></i> View</a> &nbsp;'+
-                       '<a href="/request-details?id='+jsonData[i].id+'"  data-id='+jsonData[i].id+' class="btn btn-info btn-sm PrintBtn"><i class="fa fa-print"></i> Print</a>';
+                       '<a href="/certificate-view?id='+jsonData[i].id+'"  data-id='+jsonData[i].id+' class="btn btn-info btn-sm PrintBtn"><i class="fa fa-print"></i> Print</a>';
                     }
 
                 });

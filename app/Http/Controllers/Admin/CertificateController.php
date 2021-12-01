@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\RegisterModel;
+use PDF;
 use Illuminate\Http\Request;
+use App\Models\RegisterModel;
+use Illuminate\Support\Facades\App;
+use App\Http\Controllers\Controller;
 
 class CertificateController extends Controller
 {
@@ -53,6 +55,29 @@ class CertificateController extends Controller
            return redirect('pending-certificate-request');
         }
     }
+
+
+
+    function createPDF(Request $request) { 
+        $id = $request->id;
+        $details = RegisterModel::where('id',$id)->get();
+        $name = RegisterModel::where('id',$id)->pluck('name')->first();
+
+        view()->share('details',$details);
+        $pdf = PDF::loadView('Pages.Certificate', $details);
+        return $pdf->download('certificate-of-'.$name.'.pdf'); 
+
+
+        // $pdf = App::make('dompdf.wrapper');
+        // $pdf->loadHTML('<h1>Test</h1>');
+        // return $pdf->stream();
+
+    }
+
+
+
+
+
     // Approve Request
     function AdminApprove(Request $request){
         $st_id = $request->input('st_id');
