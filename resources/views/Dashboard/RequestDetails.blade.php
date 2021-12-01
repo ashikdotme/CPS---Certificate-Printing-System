@@ -70,7 +70,7 @@
                         </tr>
                         <tr>
                             <td><b>Request Date:</b></td>
-                            <td><span class="date">{{ $details[0]['created_at'] }}</span></td>
+                            <td><span class="date">{{ date('h:i:s A d-M-Y ',strtotime($details[0]['created_at'])) }}</span></td>
                         </tr>
                         
                         <tr>
