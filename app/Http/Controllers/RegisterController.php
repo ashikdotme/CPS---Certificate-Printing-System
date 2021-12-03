@@ -35,7 +35,7 @@ class RegisterController extends Controller
         $step2_count = RegisterModel::where('mobile',$mobile)->where('step_2',1)->count();
 
         $code = rand(9999,999999);
-        $message = "Welcome to CPS, your OTP is: ".$code;
+        $message = "হ্যালো,   $name , ওটিপি (OTP) কোড:".$code;
 
         if($mobileCount == 1 AND $step1_count == 1  AND $step2_count == 0){
          
@@ -44,7 +44,9 @@ class RegisterController extends Controller
                 'updated_at' => now()
             ]);
 
-            $response = Http::post('https://api2.onnorokomsms.com/HttpSendSms.ashx?op=NumberSms&apiKey=66902e84-9a8d-4a7d-97ea-affc3c3ddae9&type=TEXT&mobile='.$mobile.'&smsText='.$message.'&maskName=&campaignName=');
+            // $response = Http::post('https://api2.onnorokomsms.com/HttpSendSms.ashx?op=NumberSms&apiKey=66902e84-9a8d-4a7d-97ea-affc3c3ddae9&type=TEXT&mobile='.$mobile.'&smsText='.$message.'&maskName=&campaignName=');
+            
+            $response = Http::get("http://api.greenweb.com.bd/api.php?token=85a94a9807036ee4b95d20956a818191&to=$mobile&message=$message");
             $jsonData = $response->status(); 
 
             return 2; 
@@ -75,10 +77,12 @@ class RegisterController extends Controller
                 'created_at' => now()
             ]);
             if($insert == true){
-                return 1;
 
-                $response = Http::post('https://api2.onnorokomsms.com/HttpSendSms.ashx?op=NumberSms&apiKey=66902e84-9a8d-4a7d-97ea-affc3c3ddae9&type=TEXT&mobile='.$mobile.'&smsText='.$message.'&maskName=&campaignName=');
+                $response = Http::get("http://api.greenweb.com.bd/api.php?token=85a94a9807036ee4b95d20956a818191&to=$mobile&message=$message");
                 $jsonData = $response->status(); 
+
+                
+                return 1;
             }else{
                 return 0;
             }
@@ -108,10 +112,10 @@ class RegisterController extends Controller
                 'created_at' => now()
             ]);
             if($update == true){
+               $message = "Hello, your certificate request submit successfully, please wait for approved.";
+                
+                $response = Http::get("http://api.greenweb.com.bd/api.php?token=85a94a9807036ee4b95d20956a818191&to=$mobile&message=$message");
                 return 1;
-    
-                $response = Http::post('https://api2.onnorokomsms.com/HttpSendSms.ashx?op=NumberSms&apiKey=66902e84-9a8d-4a7d-97ea-affc3c3ddae9&type=TEXT&mobile='.$mobile.'&smsText='.$message.'&maskName=&campaignName=');
-                $jsonData = $response->status(); 
             }else{
                 return 0;
             }
