@@ -95,7 +95,7 @@ class CertificateController extends Controller
             if($update == true){
                 $mobile = RegisterModel::where('id',$st_id)->pluck('mobile')->first();
                 $name = RegisterModel::where('id',$st_id)->pluck('name')->first();
-                $message = "Hello $name, your request is approved, please download your certificate.";
+                $message = "Hello $name, Congratulations your request is approved, please download your certificate.";
 
                 $response = Http::get("http://api.greenweb.com.bd/api.php?token=85a94a9807036ee4b95d20956a818191&to=$mobile&message=$message");
                 return 1;
