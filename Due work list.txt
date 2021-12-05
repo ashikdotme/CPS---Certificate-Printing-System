@@ -1,5 +1,5 @@
 1: Dashboard Redesign
 2: Home page Redesign
-3: Notifications
+3: Notifications == Done
 4: OTP Setup == Done
 5: Certificate Design...
