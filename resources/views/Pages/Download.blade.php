@@ -72,8 +72,7 @@
  <script>
     
     $('#downloadForm').on('submit',function(e){
-        e.preventDefault();
-    
+        e.preventDefault(); 
         var st_id=$('#st_id').val();
         var mobile_number=$('#mobile_number').val();
          
@@ -83,28 +82,24 @@
         else if(mobile_number.length==0){
             toastr.error('Mobile Number is Required!');
         } 
-        else{
-    
+        else{ 
             $('#download_btn').html('Loading <div class="spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div>');
             axios.post('/api-certificate-view-check',{
                 st_id:st_id,
                 mobile_number:mobile_number
             })
             .then(function(response){
-                if(response.status==200){ 
-                    let id = response.data['id'];
-                    let status = response.data['status']; 
-                    
-                    if(status==1){
+                if(response.status==200){  
+                    if(response.data==2){
+                        toastr.success('Now Verify OTP!'); 
                         $('#download_btn').html('Download Now'); 
-                        toastr.success('Your Certificate is Ready for Download!');    
-                        
-                        window.location = "/certificate-view?id="+id;
+                        $('#downloadForm').hide();
+                        $('#step_2').show();
                     }
                     else{
                         toastr.error(response.data);
                         $('#download_btn').html('Download Now'); 
-                    }
+                    } 
                 }else{
                     toastr.error('Something went wrong!');
                     $('#download_btn').html('Download Now'); 
@@ -116,80 +111,47 @@
         }
     
     });
-    
-    $('#regiForm').on('submit',function(e){
+
+    $('#otpForm').on('submit',function(e){
         e.preventDefault();
     
-        var name=$('#name').val();
-        var father_name=$('#father_name').val();
-        var mother_name=$('#mother_name').val();
+        var m_otp=$('#m_otp').val();
         var st_id=$('#st_id').val();
-        var department=$('#department').val();
-        var session=$('#session').val(); 
-        var batch=$('#batch').val();
-        var shift=$('#shift').val();
-        var email=$('#email').val();
-        var mobile=$('#mobile').val();
+        var mobile_number=$('#mobile_number').val();
          
-        if(name.length==0){
-            toastr.error('Name is Required!');
-        }
-        else if(father_name.length==0){
-            toastr.error('Father Name is Required!');
-        }
-        else if(father_name.length==0){
-            toastr.error("Father's Name is Required!");
-        }
-        else if(mother_name.length==0){
-            toastr.error("Mothers's Name is Required!");
-        }
-        else if(st_id.length==0){
-            toastr.error("ID is Required!");
-        }
-        else if(department.length==0){
-            toastr.error("Department is Required!");
-        }
-        else if(mobile.length==0){
-            toastr.error("Mobile Number is Required!");
-        }
-        else if(mobile.length!=11){
-            toastr.error("Mobile Number Must be 11 Digit!");
-        }
-        else{
-    
-            $('#regi_btn').html('Loading <div class="spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div>');
-            axios.post('/api-student-registration',{
-                name:name,
-                father_name:father_name,
-                mother_name:mother_name,
+        if(m_otp.length==0){
+            toastr.error('OTP is Required!');
+        } 
+        else if(mobile_number.length==0){
+            toastr.error('Mobile Number is Required!');
+        } 
+        else{ 
+            $('#otp_btn').html('Loading <div class="spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div>');
+            axios.post('/api-certificate-download-otp-confirm',{
+                m_otp:m_otp,
                 st_id:st_id,
-                department:department,
-                session:session,
-                batch:batch,
-                shift:shift,
-                email:email,
-                mobile:mobile
+                mobile_number:mobile_number
             })
             .then(function(response){
                 if(response.status==200){ 
-                    if(response.data==2){
-                        toastr.error('Please verify your OTP!');  
-                        $('#regiForm').hide();
-                        $('#step_2').show();
-                    }
-                    else if(response.data==1){
-                        toastr.success('Submit Successfully!'); 
-                        $('#regi_btn').html('Next');
-                        $('#regiForm').hide();
-                        $('#step_2').show();
-                    }
-                    else{
-                        toastr.error(response.data);
-                        $('#regi_btn').html('Next');
-                    }
+                    if(response.data !=''){
+                        let id = response.data['id'];
+                        let status = response.data['status']; 
+                        
+                        if(status==1){
+                            $('#otp_btn').html('Submit');
+                            toastr.success('Your Certificate is Ready for Download!');  
+                            window.location = "/certificate-view?id="+id;
+                            $('#m_otp').val('');
+                        }
+                        else{
+                            toastr.error(response.data);
+                            $('#otp_btn').html('Submit');
+                        }
+                    } 
                 }else{
                     toastr.error('Something went wrong!');
-                    $('#regi_btn').html('Next');
+                    $('#otp_btn').html('Submit');
                 }
             })
             .catch(function (error) {
@@ -198,7 +160,6 @@
         }
     
     });
-    
     </script>
     
  @endsection

@@ -40,3 +40,4 @@ Route::get('/',[FrontController::class,'PageHome']);
 Route::get('certificate',[FrontController::class,'CertificatePageView']);
 Route::get('certificate-view',[CertificateController::class,'createPDF']);
 Route::post('api-certificate-view-check',[FrontController::class,'CertificateDownloadFromFront']);
+Route::post('api-certificate-download-otp-confirm',[FrontController::class,'confirmDownloadOtp']);
