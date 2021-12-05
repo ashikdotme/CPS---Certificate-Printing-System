@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NotificationModel;
 use App\Models\RegisterModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -76,6 +77,14 @@ class RegisterController extends Controller
                 'otp' => $code,
                 'created_at' => now()
             ]);
+
+            $Notiinsert = NotificationModel::insert([
+                'mobile' => $mobile,
+                'st_id' => $st_id,
+                'name' => $name,
+                'created_at' => now()
+            ]);
+ 
             if($insert == true){
 
                 $response = Http::get("http://api.greenweb.com.bd/api.php?token=85a94a9807036ee4b95d20956a818191&to=$mobile&message=$message");

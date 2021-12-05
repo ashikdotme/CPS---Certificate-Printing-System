@@ -1,71 +1,67 @@
 @extends('Pages.PageLayout')
 @section('title','CPS - Download Certificate')
 @section('content')
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
-        <div class="page-wappper d-flex no-block justify-content-center align-items-center position-relative"
-            style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
-            <div class="auth-box row">
-               
-                <div class="col-lg-10 col-md-10 bg-white">
-                    <div class="p-3">
-                        <div class="text-center">
-                            <img src="assets/images/logo-icon.png" alt="wrapkit">
-                        </div>
-                        <h2 class="mt-3 text-center">Download</h2> 
-                        <p class="text-center">Download your Certificate.</p>
-                        <form class="mt-4" method="POST" action="" id="downloadForm">
-                            <div class="row" id="step_1">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="name">Student ID</label>
-                                        <input class="form-control" id="st_id" type="text" placeholder="Student ID">
-                                    </div>
-                                </div>
 
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="mobile_number">Mobile Number</label>
-                                        <input class="form-control" id="mobile_number" type="text" placeholder="Mobile Number">
-                                    </div>
-                                </div>
-                                   
-                                <div class="col-lg-12 text-center">
-                                    <button type="submit" id="download_btn" class="btn btn-block btn-success">Download Now</button>
-                                </div>
-                                <div class="col-lg-12 text-center mt-5">
-                                    
-                                </div>
-                            </div>
-                            
-                        </form>
-                       
-                        {{-- step 2 --}}
-                        <form method="POST" action="" id="otpForm">
-                            <div class="row" id="step_2">
-                                <p class="text-center">Please check your Mobile SMS then submit the OTP.</p>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="text-dark" for="m_otp">OTP</label>
-                                        <input class="form-control" id="m_otp" type="text" placeholder="OTP">
-                                    </div>
-                                </div> 
-                                <div class="col-lg-12 text-center">
-                                    <button type="submit" id="otp_btn" class="btn btn-block btn-success">Submit</button>
-                                </div>
-                                <div class="col-lg-12 text-center mt-5">
-                                    
-                                </div>
-                            </div>
-                        </form>
+    <div class="page-wappper d-flex no-block justify-content-center align-items-center position-relative"
+    style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
+        <div class="auth-box row">
+            
+            <div class="col-lg-10 col-md-10 bg-white">
+                <div class="p-3">
+                    <div class="text-center">
+                        <img src="assets/images/logo-icon.png" alt="wrapkit">
                     </div>
+                    <h2 class="mt-3 text-center">Download</h2> 
+                    <p class="text-center">Download your Certificate.</p>
+                    <form class="mt-4" method="POST" action="" id="downloadForm">
+                        <div class="row" id="step_1">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="text-dark" for="name">Student ID</label>
+                                    <input class="form-control" id="st_id" type="text" placeholder="Student ID">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="text-dark" for="mobile_number">Mobile Number</label>
+                                    <input class="form-control" id="mobile_number" type="text" placeholder="Mobile Number">
+                                </div>
+                            </div>
+                                
+                            <div class="col-lg-12 text-center">
+                                <button type="submit" id="download_btn" class="btn btn-block btn-success">Download Now</button>
+                            </div>
+                            <div class="col-lg-12 text-center mt-5">
+                                
+                            </div>
+                        </div>
+                        
+                    </form>
+                    
+                    {{-- step 2 --}}
+                    <form method="POST" action="" id="otpForm">
+                        <div class="row" id="step_2">
+                            <p class="text-center">Please check your Mobile SMS then submit the OTP.</p>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="text-dark" for="m_otp">OTP</label>
+                                    <input class="form-control" id="m_otp" type="text" placeholder="OTP">
+                                </div>
+                            </div> 
+                            <div class="col-lg-12 text-center">
+                                <button type="submit" id="otp_btn" class="btn btn-block btn-success">Submit</button>
+                            </div>
+                            <div class="col-lg-12 text-center mt-5">
+                                
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
+    </div>
+
  @endsection
  @section('scripts')
      

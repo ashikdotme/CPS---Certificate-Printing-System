@@ -1,9 +1,7 @@
 @extends('Pages.PageLayout')
 @section('title','CPS - New Registration')
 @section('content')
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
+
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
             style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
             <div class="auth-box row">
@@ -70,6 +68,21 @@
                                             <option value="Batch 8">Batch 8</option>
                                             <option value="Batch 9">Batch 9</option>
                                             <option value="Batch 10">Batch 10</option>
+                                            <option value="Batch 11">Batch 11</option>
+                                            <option value="Batch 12">Batch 12</option>
+                                            <option value="Batch 13">Batch 13</option>
+                                            <option value="Batch 14">Batch 14</option>
+                                            <option value="Batch 15">Batch 15</option>
+                                            <option value="Batch 16">Batch 16</option>
+                                            <option value="Batch 17">Batch 17</option>
+                                            <option value="Batch 18">Batch 18</option>
+                                            <option value="Batch 19">Batch 19</option>
+                                            <option value="Batch 20">Batch 20</option>
+                                            <option value="Batch 21">Batch 21</option>
+                                            <option value="Batch 22">Batch 22</option>
+                                            <option value="Batch 23">Batch 23</option>
+                                            <option value="Batch 24">Batch 24</option>
+                                            <option value="Batch 25">Batch 25</option>
                                         </select> 
                                     </div>
                                 </div>
@@ -84,7 +97,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label class="text-dark" for="mobile">Mobile</label>
+                                        <label class="text-dark" for="mobile">Mobile Number</label>
                                         <input class="form-control" id="mobile" type="text" placeholder="Mobile">
                                     </div>
                                 </div>
@@ -126,9 +139,7 @@
                 </div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
+        
  @endsection
  @section('scripts')
      

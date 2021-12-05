@@ -1,9 +1,7 @@
 @extends('Pages.PageLayout')
 @section('title','CPS - Check Status')
 @section('content')
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
+
         <div class="page-wappper d-flex no-block justify-content-center align-items-center position-relative"
             style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
             <div class="auth-box row">
@@ -38,9 +36,7 @@
                 </div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
+        
  @endsection
  @section('scripts')
      
@@ -54,8 +50,7 @@
         if(st_id.length==0){
             toastr.error('Student ID Required!');
         }  
-        else{
-    
+        else{ 
             $('#status_btn').html('Loading <div class="spinner-grow spinner-grow-sm" role="status"><span class="sr-only">Loading...</span></div>');
             axios.post('/api-check-status',{
                 st_id:st_id
@@ -67,10 +62,8 @@
                         toastr.error('Student ID Not Found!');
                         $('#status_btn').html('Check Status');
                     }
-                    else{
-                        
-                        let status = response.data[0]['status'];
-
+                    else{ 
+                        let status = response.data[0]['status']; 
                         if(status == 0){
                             $('.success__msg').html('<div class="alert alert-warning">Hello, <b>'+response.data[0]['name']+'</b> your Request is Pending!</div>');
                             $('#status_btn').html('Check Status');
