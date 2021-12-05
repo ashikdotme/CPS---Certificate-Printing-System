@@ -12,6 +12,12 @@ Route::get('/login',[AdminController::class,'login_page_view']);
 Route::get('logout',[AdminController::class,'logOut']);
 Route::post('api-on-login',[AdminController::class,'onLogin']);
 
+// Notifications
+Route::get('api-notifications-list',[AdminController::class,'NotificationList'])->middleware('AdminCheck');
+Route::get('api-notifications-count',[AdminController::class,'NotificationCount'])->middleware('AdminCheck');
+Route::post('api-read-notification',[AdminController::class,'ReadNotification'])->middleware('AdminCheck');
+
+
 // Dashboard 
 Route::get('pending-certificate-request',[CertificateController::class,'PendingRequestPage'])->middleware('AdminCheck');
 Route::get('reject-request-list',[CertificateController::class,'RejectListPage'])->middleware('AdminCheck');
@@ -41,3 +47,4 @@ Route::get('certificate',[FrontController::class,'CertificatePageView']);
 Route::get('certificate-view',[CertificateController::class,'createPDF']);
 Route::post('api-certificate-view-check',[FrontController::class,'CertificateDownloadFromFront']);
 Route::post('api-certificate-download-otp-confirm',[FrontController::class,'confirmDownloadOtp']);
+

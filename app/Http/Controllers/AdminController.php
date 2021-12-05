@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminLoginModel;
+use App\Models\NotificationModel;
 use App\Models\RegisterModel;
 use Illuminate\Http\Request;
+use DB;
 
 class AdminController extends Controller
 {
@@ -25,7 +27,26 @@ class AdminController extends Controller
         ]);
     }
 
+    function NotificationList(){ 
+        $list = DB::table('notifications')
+       ->join('students','notifications.mobile','=','students.mobile')
+       ->select('notifications.*','students.name','students.id')
+       ->where('notifications.unread',0)
+       ->get();
 
+       return $list;
+    }
+    function NotificationCount(){
+        $notiCount  = NotificationModel::where('unread',0)->count();
+        return $notiCount;
+    }
+    function ReadNotification(Request $request){
+        $id = $request->input('nid');
+        $update = NotificationModel::where('nid',$id)->update([
+            'unread' => 1,
+            'updated_at' => now()
+        ]);
+    }
 
     // Login Check
     function onLogin(Request $request){

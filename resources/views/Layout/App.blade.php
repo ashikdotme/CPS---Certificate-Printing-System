@@ -98,47 +98,16 @@
                                 id="bell" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 <span><i data-feather="bell" class="svg-icon"></i></span>
-                                <span class="badge badge-primary notify-no rounded-circle">5</span>
+                                <span class="badge badge-primary notify-no rounded-circle" id="nottCount"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-left mailbox animated bounceInDown">
                                 <ul class="list-style-none">
                                     <li>
-                                        <div class="message-center notifications position-relative">
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)"
-                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
-                                                <div class="btn btn-danger rounded-circle btn-circle"><i
-                                                        data-feather="airplay" class="text-white"></i></div>
-                                                <div class="w-75 d-inline-block v-middle pl-2">
-                                                    <h6 class="message-title mb-0 mt-1">Luanch Admin</h6>
-                                                    <span class="font-12 text-nowrap d-block text-muted">Just see
-                                                        the my new
-                                                        admin!</span>
-                                                    <span class="font-12 text-nowrap d-block text-muted">9:30 AM</span>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)"
-                                                class="message-item d-flex align-items-center border-bottom px-3 py-2">
-                                                <span class="btn btn-success text-white rounded-circle btn-circle"><i
-                                                        data-feather="calendar" class="text-white"></i></span>
-                                                <div class="w-75 d-inline-block v-middle pl-2">
-                                                    <h6 class="message-title mb-0 mt-1">Event today</h6>
-                                                    <span
-                                                        class="font-12 text-nowrap d-block text-muted text-truncate">Just
-                                                        a reminder that you have event</span>
-                                                    <span class="font-12 text-nowrap d-block text-muted">9:10 AM</span>
-                                                </div>
-                                            </a>
-                                           
+                                        <div class="message-center notifications position-relative" id="AdminNotiList">
+                                            
                                         </div>
                                     </li>
-                                    <li>
-                                        <a class="nav-link pt-3 text-center text-dark" href="javascript:void(0);">
-                                            <strong>Check all notifications</strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </li>
+                                     
                                 </ul>
                             </div>
                         </li>
@@ -265,6 +234,7 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="{{ asset('assets/js/axios.min.js') }}"></script>
+    <script src="{{ asset('assets/js/moment.min.js') }}"></script>
     <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -288,5 +258,53 @@
     <script src="{{ asset('assets/extra-libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/pages/datatable/datatable-basic.init.js') }}"></script> 
     @yield('scripts')
+    <script>
+        Notifications(); 
+        function Notifications(){
+            axios.get('/api-notifications-list')
+            .then(function(response){
+                if(response.status == 200){
+                    var jsonData = response.data;
+                    $.each(jsonData, function(i, item) {
+                        $('<a href="/request-details?id='+ jsonData[i].id +'" data-id="'+ jsonData[i].nid +'" class="request_btn message-item d-flex align-items-center border-bottom px-3 py-2">').html( 
+                            '<div class="btn btn-danger rounded-circle btn-circle"><i class="text-white fa fa-paper-plane"></i></div>'+
+                            '<div class="w-75 d-inline-block v-middle pl-2"><h6 class="message-title mb-0 mt-1">New Request</h6>'+
+                            '<span class="font-12 text-nowrap d-block text-muted"> Request from: '+ jsonData[i].name +'</span>'+
+                            '<span class="font-12 text-nowrap d-block text-muted">'+ moment(jsonData[i].created_at).format('DD-MM-YYYY h:mm:ss A') +'</span>'+
+                            '</div></a>' 
+                        ).appendTo('#AdminNotiList');
+                        
+                        
+                    });
+
+                    // Read Notification
+                    $('.request_btn').click(function(){
+                        var reqid = $(this).data('id');
+                        ReadNotification(reqid); 
+                    });
+                }
+            })
+        }
+        NotificationCount();
+        function NotificationCount(){
+            axios.get('/api-notifications-count')
+            .then(function(response){
+                if(response.status == 200){
+                    $('#nottCount').text(response.data);
+                }
+            })
+        }
+        function ReadNotification(nid){
+            axios.post('/api-read-notification',{
+                nid:nid
+            })
+            .then(function(response){
+                if(response.status == 200){
+                    Notifications();
+                    NotificationCount();
+                }   
+            })
+        }
+    </script>
 </body>
 </html>
