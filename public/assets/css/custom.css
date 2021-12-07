@@ -81,6 +81,34 @@
 }
 
 
+.gradiant_1 {
+	background-color: #0beef9;
+	background-image: linear-gradient(315deg, #0beef9 0%, #48a9fe 74%);
+}
+.gradiant_1 h2,
+.gradiant_1 h6{
+	color: #FFF;
+}
+.gradiant_2 {
+	background-color: #726cf8;
+	background-image: linear-gradient(315deg, #726cf8 0%, #e975a8 74%);
+}
+.gradiant_2 h2,
+.gradiant_2 h6{
+	color: #FFF;
+}
+
+.gradiant_3 {
+	background-color: #08e1ae;
+	background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
+}
+.gradiant_3 h2,
+.gradiant_3 h6{
+	color: #FFF;
+}
+
+
+
 
 @media all and (max-width:767px){
 	.banner-area .row .col-md-6:last-child{
