@@ -72,7 +72,7 @@
 </div>
 
 <div class="footer_area">
-    <p>&copy; 2021 All Right Reserved.</p>
+    <p>&copy; 2021 All Right Reserved. Develop by Group 5 </p>
 </div>
 <!-- ============================================================== -->
 <!-- All Required js -->

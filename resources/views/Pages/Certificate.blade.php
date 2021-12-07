@@ -12,7 +12,7 @@
                 <div class="certificate-view">
                     <h1>Euripeon University of Bangladesh</h1>
                     <p>BSC in CSE</p>
-                    {{ $details }}
+                    {{-- {{ $details }} --}}
                 </div>
             </div>
         </div>

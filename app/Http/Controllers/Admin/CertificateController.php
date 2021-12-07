@@ -75,7 +75,9 @@ class CertificateController extends Controller
 
     }
 
-
+    function createPDFview() { 
+        return view('Pages.Certificate');
+    }
 
 
 

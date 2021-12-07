@@ -1,4 +1,4 @@
-1: Dashboard Redesign
+1: Dashboard Redesign = Done
 2: Home page Redesign
 3: Notifications == Done
 4: OTP Setup == Done

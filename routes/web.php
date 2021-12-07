@@ -45,6 +45,7 @@ Route::get('/',[FrontController::class,'PageHome']);
 // Certificate routes
 Route::get('certificate',[FrontController::class,'CertificatePageView']);
 Route::get('certificate-view',[CertificateController::class,'createPDF']);
+Route::get('certificate-view-design',[CertificateController::class,'createPDFview']);
 Route::post('api-certificate-view-check',[FrontController::class,'CertificateDownloadFromFront']);
 Route::post('api-certificate-download-otp-confirm',[FrontController::class,'confirmDownloadOtp']);
 

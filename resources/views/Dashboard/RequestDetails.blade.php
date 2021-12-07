@@ -2,7 +2,7 @@
 @section('title','CPS - Pending Details')
 @section('content')
 <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title border-bottom">Request Details:</h4>  
