@@ -197,22 +197,14 @@
             {{-- <p>of Excellence</p> --}}
             </div>
             <div class="certificate-text ">
-            <p class="name text-left"><span class="name_of">{{ $details[0]['name'] }}</span> <span class="id_text">ID:{{ $details[0]['st_id'] }}</span></p>
+            <p class="name text-left"><span class="name_of">Ashikur Rahman</span> <span class="id_text">ID:#190322042</span></p>
             <p>is declared to have fulfilled te prescribed requirements for the degree of</p>
             </div>
             <div class="certificate-content">
             <h3>Bachelor of Science</h3>
             <h3>In</h3>
-            <h3>
-                @if($details[0]['department'] == "CSE") 
-                Computer Science Engineering
-                @elseif($details[0]['department'] == "EEE") 
-                Electrical and Electronics Engineering
-                @else
-                    {{ $details[0]['department'] }}
-                @endif
-                </h3>
-            <p>with a Cumulative Grade Point Average of <span class="grade_point">{{ $details[0]['cgpa'] }}</span> on a scale of <i><b>4.0</b></i> from the Faculty of Science and Information Technology, <br> <b>European University of Bangladesh.</b></p>
+            <h3>Computer Science Engineering</h3>
+            <p>with a Cumulative Grade Point Average of <span class="grade_point">3.43</span> on a scale of <i><b>4.0</b></i> from the Faculty of Science and Information Technology, <b>European University of Bangladesh.</b></p>
             </div>
             <div class="footer-area">
             <div class="c_footer_left">
