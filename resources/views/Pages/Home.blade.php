@@ -6,7 +6,7 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="banner-left">
-                    <img src="assets/images/Cert.jpg" alt="certificate">
+                    <img src="assets/images/certificate-view.png" alt="certificate">
                 </div>
             </div>
             <div class="col-md-6">

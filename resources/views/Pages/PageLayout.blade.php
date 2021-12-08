@@ -33,13 +33,13 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                           <ul class="navbar-nav">
-                            <li class="nav-item active">
+                            <li class="{{ (request()->is('/')) ? 'nav-item link_active' : 'nav-item' }}" >
                               <a class="nav-link" href="{{ url('/') }}">Home</a>
                             </li> 
-                            <li class="nav-item  ">
+                            <li class="{{ (request()->is('registration')) ? 'nav-item link_active' : 'nav-item' }}">
                               <a class="nav-link" href="{{ url('registration') }}">New Registration</a>
                             </li> 
-                            <li class="nav-item  ">
+                            <li class="{{ (request()->is('check-status')) ? 'nav-item link_active' : 'nav-item' }}">
                               <a class="nav-link" href="{{ url('check-status') }}">Check Status</a>
                             </li> 
                             <li class="nav-item active">
