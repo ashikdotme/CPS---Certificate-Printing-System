@@ -8,7 +8,7 @@ After Approved Certificate is ready for Download and also Student get a Message 
 
 ## Live Demo
 <a href="https://cps.ashik.me" target="_blank">See Demo</a> <br>
-<a href="https://cps.ashik.me/ashik" target="_blank">Admin Login</a> <br>
+<a href="https://cps.ashik.me/login" target="_blank">Admin Login</a> <br>
 `Admin Username: ashik
  Password: 12345
  `
