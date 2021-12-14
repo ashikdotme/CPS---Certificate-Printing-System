@@ -217,7 +217,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center text-muted">
-                Develop by <a target="_blank" href="http://cps.ashik.me">Group 5</a>
+                Develop by <a href="https://coderitsolution.com" target="_blank">Coder IT Solution</a>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
